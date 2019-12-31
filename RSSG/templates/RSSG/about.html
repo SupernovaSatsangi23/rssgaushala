@@ -1,0 +1,28 @@
+{% extends "RSSG/base.html" %}
+
+{% block title %}
+	About RSSG
+{% endblock title %}
+
+{% block content %}
+<body style="background-color:  black;">
+{% for i in About %}
+	<br>
+	<div class="text-center" style="color: white;">
+		<img src="{{ i.image.url }}" alt="Cowshed" width="700" height="400" title="Moooo (Radhasoami)">
+	</div>
+	<br>
+	<div class="text-center">
+		<p title="About gaushala" style="font-family: ubuntu; color: white; padding: 35px;">{{ i.content_1 }}</p>
+	</div>
+	<div class="text-center">
+		<p title="Gaushala statistics" style="font-family: ubuntu; color: white; padding: 35px;">{{ i.content_2 }}</p>
+	</div>
+{% endfor %}
+<br>
+<div class="text-center">
+	<a class="btn btn-light" href="{% url 'RSSG-home' %}" role="button" style="font-family: ubuntu;">Home</a>
+</div>
+<br>
+</body>
+{% endblock content %}

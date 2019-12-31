@@ -1,0 +1,31 @@
+{% extends "RSSG/base.html" %}
+
+{% block title %}
+	RSSG Gallery
+{% endblock title %}
+
+{% block content %}
+<body style="background-color: black; padding: 30px;" title="clickable">
+	<br>
+	<div class="text-center">
+		<a class="btn btn-light" href="{% url 'RSSG-home' %}" role="button" style="font-family: ubuntu;">Home</a>
+	</div>
+	<br>
+	{% for i in Gallery %}
+		<table align="center">
+			<tr>
+				<td style="padding: 10px;"><a href="{{ i.image_array_1.url }}" target="_blank"><img src="{{ i.image_array_1.url }}" width="300" height="200"></a></td>
+				<td style="padding: 10px;"><a href="{{ i.image_array_2.url }}" target="_blank"><img src="{{ i.image_array_2.url }}" width="300" height="200"></a></td>
+				<td style="padding: 10px;"><a href="{{ i.image_array_3.url }}" target="_blank"><img src="{{ i.image_array_3.url }}" width="300" height="200"></a></td>
+				<td style="padding: 10px;"><a href="{{ i.vid.url }}" target="_blank"><video width="350" controls><source src="{{ i.vid.url }}" type="video/mp4"></video></a></td>
+			</tr>
+		</table>
+	{% endfor %}
+	<br>
+	<div class="text-center">
+		<a class="btn btn-light" href="{% url 'RSSG-home' %}" role="button" style="font-family: ubuntu;">Home</a>
+	</div>
+	<br>
+</body>
+{% endblock content  %}
+

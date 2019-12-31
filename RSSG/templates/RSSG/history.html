@@ -1,0 +1,28 @@
+{% extends 'RSSG/base.html' %}
+
+{% block title %}
+	RSSG History
+{% endblock title %}
+
+{% block content %}
+<body style="padding: 20px; font-family: ubuntu;">
+	<div class="card-columns">
+		{% for i in History %}
+			<div class="card text-white bg-dark mb-3" style="font-family: ubuntu;">
+				<a href="{{ i.image.url }}" target="_blank"><img src="{{ i.image.url }}" class="card-img-top" alt="{{ i.title }}"></a>
+				<div class="card-body">
+					<h4 class="card-title">{{ i.title }}</h4>
+					<p class="card-text">{{ i.context }}</p>
+					<p class="card-text" style="color: white"><small class="text-muted">{{ i.year }}</small></p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<br>
+	<div class="text-center">
+		<a class="btn btn-dark" href="{% url 'RSSG-home' %}" role="button" style="font-family: ubuntu;">Home</a>
+	</div>
+	<br>
+
+</body>
+{% endblock content %}

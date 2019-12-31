@@ -1,0 +1,63 @@
+{% extends 'RSSG/base.html' %}
+
+{% block title %}
+	RSSG Ops
+{% endblock title %}
+
+{% block content %}
+<body style="font-family: ubuntu; background-color: blue">
+	<div style="background-image: url('https://cdn.pixabay.com/photo/2013/10/31/13/42/cows-203460_960_720.jpg'); background-size: cover; background-repeat: repeat;">
+		<br>
+		<p align="center">
+			<a class="btn btn-dark" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+			Operations
+			</a>
+		</p>
+		{% for i in Operations %}
+
+
+
+			<div class="collapse" id="collapseExample" align="middle">
+					<div class="card text-white bg-dark mb-3" style="max-width: 540px;">
+						<div class="row no-gutters">
+						<div class="col-md-4">
+		  					<a href="{{ i.image.url }}" target="_blank"><img src="{{ i.image.url }}" class="card-img" alt="{{ i.name }}"></a>
+						</div>
+						<div class="col-md-8">
+		  					<div class="card-body">
+		    					<h4 class="card-title">{{ i.name }}</h4>
+		    					<h6>Purpose : {{ i.purpose_of_this_op }}</h6>
+
+		    					<p>
+										<a class="btn btn-light" data-toggle="collapse" href="#collapseExamplenew" role="button" aria-expanded="false" aria-controls="collapseExamplenew">
+										Explanation
+										</a>
+								</p>
+								<div class="collapse" id="collapseExamplenew">
+	 								<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+										<div class="card-body">
+											<p class="card-text">{{ i.explanation }}</p>
+										</div>
+									</div>
+								</div>
+
+		    					<p class="card-text" style="color: white"><small class="text-muted">Introduced in {{ i.implementation_year }}</small></p>
+		  					</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+
+
+		{% endfor %}
+		<br>
+		<div class="text-center">
+			<a class="btn btn-dark" href="{% url 'RSSG-home' %}" role="button" style="font-family: ubuntu;">Home</a>
+		</div>
+		<br>
+	</div>
+</body>
+{% endblock content %}
+
+
